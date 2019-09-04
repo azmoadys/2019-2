@@ -2,8 +2,8 @@
 
 In this repository, I will upload all my studys during Sep to Dec, 2019.
 
-###Algo
+### Algo
 Algorithm Study
 
-###Sogang
+### Sogang
 School Study
