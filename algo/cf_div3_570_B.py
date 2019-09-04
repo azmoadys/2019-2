@@ -1,3 +1,5 @@
+# wrong
+
 import math
 
 def average(num):
