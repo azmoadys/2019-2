@@ -6,11 +6,13 @@ S = 8
 def solution(data,S):
     length = len(data)
     for i in range(0,length):
+        check = sum(data[i:length])
         for j in range(length, i, -1):
-            if sum(data[i:j]) == S:
+            if check == S:
                 answer = data[i:j]
                 break
-        if sum(data[i:j]) ==S:
+            check -= data[j-1]
+        if check ==S:
             break
     return answer
 
