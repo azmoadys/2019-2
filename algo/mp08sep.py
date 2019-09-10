@@ -1,4 +1,5 @@
 # link
+# O(n^2)
 
 data1  = [3, 4, -7, 3, 1, 3, 1, -4, -2, -2]
 data2 = [1,2,3,4,5,6,7,8,9]
@@ -9,8 +10,8 @@ def solution(data):
     length = len(data)
     for i in range(length):
         temp =dic[i] +data[i]
-        if temp in dic:
-           return True
+        if temp in dic:         #There is no Hashset in python.
+           return True          #So, I it is impossible to make this py file O(n)...
         dic[i+1] = temp
     return False
         
