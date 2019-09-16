@@ -2,45 +2,60 @@
 
 import sys
 
+
 def eratos(data):
-    answer = []
+    answer = dict()
+    checker = dict()
     num = []
     for i in range(2,data):
         num.append(i)
     cnt = 2
+    for i in range(data):
+        checker[i] = False 
     while True:
-        try :
+        try:
+            if checker[num[0]*cnt] ==True:
+                cnt+=1
+                continue
             num.remove(cnt*num[0])
+            checker[cnt*num[0]] = True
             cnt +=1
-        except :
+        except:
             if num ==[]:
                 break
             else:
-                answer.append(num[0])
+                answer[num[0]] = True
                 num.remove(num[0])
+                cnt = 2
     return answer
     
 def solution(data, N):
     if N//2 in data:
-        print(N//2)
         return N//2
     else:
-        length = len(data)
+        temp = []
+        for i in data:
+            temp.append(i)
+        length = len(temp)
         for i in range(length):
-            if data[i] > N//2:
+            if temp[i] > N//2:
                 strt = i-1
-        for i in data[strt:]:
-            if N-i in data:
-                return i
+                break
             else:
                 continue
+        for i in temp[strt::-1]:
+            try:
+                data[N-i]
+                return i
+            except:
+                pass
     
 if __name__ == '__main__':
     T = int(sys.stdin.readline().rstrip())
     for running in range(T):
         N = int(sys.stdin.readline().rstrip()) # target #
+        eratos(N)
         result = solution(eratos(N),N)
-        print(result)
         if result > N-result:
             print(N-result, result)
         else:
