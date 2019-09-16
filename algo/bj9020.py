@@ -6,29 +6,31 @@ import sys
 def eratos(data):
     answer = dict()
     checker = dict()
-    num = []
+    deleted = dict()
     for i in range(2,data):
-        num.append(i)
-    cnt = 2
-    for i in range(data):
         checker[i] = False 
+        deleted[i] = False
+    cnt = 2
+    strt = 2
     while True:
-        try:
-            if checker[num[0]*cnt] ==True:
-                cnt+=1
-                continue
-            num.remove(cnt*num[0])
-            checker[cnt*num[0]] = True
-            cnt +=1
-        except:
-            if num ==[]:
+        if checker[strt] == True:
+            strt+=1
+            if strt >= data:
                 break
             else:
-                answer[num[0]] = True
-                num.remove(num[0])
-                cnt = 2
+                continue
+        try:
+            if checker[strt*cnt] ==True:
+                cnt+=1
+                continue
+            checker[cnt*strt] = True
+            cnt +=1
+        except:
+            answer[strt] = True
+            checker[strt] = True
+            cnt = 2
     return answer
-    
+ 
 def solution(data, N):
     if N//2 in data:
         return N//2
