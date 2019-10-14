@@ -11,6 +11,5 @@ for j in range(y_len):
             y[j] = temp
 
 y.sort()
-
 print('X: ',x)
 print("Y: ",y)
